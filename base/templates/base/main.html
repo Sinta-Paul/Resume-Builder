@@ -1,0 +1,214 @@
+<html>
+    <head>
+        <title>
+            RESUME-BUILDER
+        </title>
+        <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      $(document).ready(function(){
+        var count = 1;
+        $('#add_field').click(function(){
+          count++;
+          var html = '<div class="fields"><span class="field">Skills:</span><input type="text" name="skills" placeholder="Enter your skills"/></div>';
+          $('#adding').append(html);
+        });
+      });
+      $(document).ready(function(){
+        var count = 1;
+        $('#add_ex').click(function(){
+          count++;
+          var html = '<span class="field">Organization:</span><input type="text" name="org" placeholder="Enter name of organization"/><span class="field">Position:</span><input type="text" name="pos" placeholder="Enter position"/><span class="field">From:</span><input type="date" name="frm-ex"/><span class="field">To:</span><input type="date" name="to-ex"/><span class="field">Description:</span><input type="text" name="desc-ex"/>';
+          $('#newex').append(html);
+        });
+      });
+      $(document).ready(function(){
+        var count = 1;
+        $('#add_pr').click(function(){
+          count++;
+          var html = '<span class="field">Title:</span><input type="text" name="title" placeholder="Enter project title" id="projects"/><span class="field">Link:</span><input type="text" name="link" placeholder="Enter deployed/github repo link"/><span class="field">Description:</span><input type="text" name="desc-pr"/>';
+          $('#newpr').append(html);
+        });
+      });
+      $(document).ready(function(){
+        var count = 1;
+        $('#add_hob').click(function(){
+          count++;
+          var html = '<span class="field">Description:</span><input type="text" name="desc-ac" id="hobbies"/>';
+          $('#newhob').append(html);
+        });
+      });
+    </script>
+        <style>
+            .maincontainer{
+                margin: 3%;
+                font-family: "Poppins";
+            }
+            .heading
+            {
+                font-family: "Poppins";
+                color:rgb(81, 81, 194);
+                font-size: 30px;
+                font-weight: 900;
+            }
+            p
+            {
+                font-family: "Poppins";
+                color: rgb(60, 60, 62);
+                font-size: 17px;
+            }
+            hr{
+                border:1px solid rgb(81, 81, 194);
+            }
+            .subh
+            {
+                font-family: "Poppins";
+                color:rgb(81, 81, 194);
+                font-size: 20px;
+                font-weight: 900;
+            }
+            a
+            {
+                padding: 1%;
+                text-decoration-line: none;
+                background-color: rgb(81, 81, 194);
+                color: #FFFFFF;
+            }
+            span
+            {
+                display: block;
+            }
+            .card
+            {
+                border:1px solid rgb(81, 81, 194);
+                padding: 3%;
+                margin:5%;
+            }
+            input[type=submit]
+            {
+                margin-left: 40%;
+                text-decoration: none;
+                padding: 1%;
+                background-color: rgb(81, 81, 194);
+                color: #FFFFFF;
+                border:none;
+            }
+            input[type=text]
+            {
+                width:50%;
+                margin-bottom:1%;
+                text-decoration: none;
+                padding: 1%;
+                border:1px solid rgb(60, 60, 62);
+            }
+            input[type=date]
+            {
+                width:50%;
+                margin-bottom:1%;
+                text-decoration: none;
+                padding: 1%;
+                border:1px solid rgb(60, 60, 62);
+            }
+            .btn{
+                border:1px solid rgb(81, 81, 194);
+                background-color: #FFFFFF;
+                border-radius: 5%;
+                padding:1%;
+                color:rgb(81, 81, 194);
+            }
+        </style>
+    </head> 
+    <body>
+        <div class="maincontainer">
+            <div class="heading">BUILD YOUR RESUME</div>
+            <p>
+                Build beautiful, recruiter-tested resumes in a few clicks!Custom-tailor resumes for any job within minutes. Increase your interview chances and rise above the competition.
+            </p>
+            <hr>
+            <form method="POST" action="">
+                {% csrf_token %}
+                    <div class="card">
+                        <div class="subh">Personal Details</div>
+                    <span class="field">Name:</span>
+                    <input type="text" name="name" placeholder="Enter your full name" id="personal"/>
+                    <span class="field">e-mail:</span>
+                    <input type="text" name="email" placeholder="Enter email"/>
+                    <span class="field">Mobile:</span>
+                    <input type="text" name="mobile" placeholder="Enter mobile number"/>
+                    <span class="field">LinkedIn:</span>
+                    <input type="text" name="linkedin" placeholder="Enter LinkedIn profile link"/>
+                    <span class="field">Github:</span>
+                    <input type="text" name="github" placeholder="Enter Github profile link"/>
+                    <div id="adding">
+                    <div class="fields">
+                    <span class="field">Skills:</span>
+                    <input type="text" name="skills" placeholder="Enter your skills"/>
+                    </div>
+                    </div>
+                    <button type="button" class="btn" id="add_field">Add</button>
+                    <a href="#education">Next</a>
+                    </div>
+
+                    <div class="card">
+                        <div class="subh">Education</div>
+                    <span class="field">College:</span>
+                    <input type="text" name="college" placeholder="Enter your College" id="education"/>
+                    <span class="field">Degree:</span>
+                    <input type="text" name="degree" placeholder="Enter your degree"/>
+                    <span class="field">Discipline:</span>
+                    <input type="text" name="discipline"/>
+                    <span class="field">CGPA:</span>
+                    <input type="text" name="cgpa" placeholder="Enter CGPA"/>
+                    <span class="field">From:</span>
+                    <input type="date" name="frm-ed"/>
+                    <span class="field">To:</span>
+                    <input type="date" name="to-ed"/>
+                    <a href="#personal">Back</a>
+                    <a href="#experience">Next</a>
+                    </div>
+
+
+                    <div class="card">
+                        <div class="subh">Experience</div>
+                    <div id="newex">
+                    <span class="field">Organization:</span>
+                    <input type="text" name="org" placeholder="Enter name of organization" id="experience"/>
+                    <span class="field">Position:</span>
+                    <input type="text" name="pos" placeholder="Enter position"/>
+                    <span class="field">From:</span>
+                    <input type="date" name="frm-ex"/>
+                    <span class="field">To:</span>
+                    <input type="date" name="to-ex"/>
+                    <span class="field">Description:</span>
+                    <input type="text" name="desc-ex"/></div>
+                    <button type="button" class="btn" id="add_ex">Add</button>
+                    <a href="#education">Back</a>
+                    <a href="#projects">Next</a>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="subh">Projects</div>
+                    <div id="newpr">
+                    <span class="field">Title:</span>
+                    <input type="text" name="title" placeholder="Enter project title" id="projects"/>
+                    <span class="field">Link:</span>
+                    <input type="text" name="link" placeholder="Enter deployed/github repo link"/>
+                    <span class="field">Description:</span>
+                    <input type="text" name="desc-pr"/></div>
+                    <button type="button" class="btn" id="add_pr">Add</button>
+                    <a href="#experience">Back</a>
+                    <a href="#hobbies">Next</a>
+                    </div>
+
+                    <div class="card">
+                        <div class="subh">Hobbies/Achievements</div>
+                        <div id="newhob">
+                    <span class="field">Description:</span>
+                    <input type="text" name="desc-ac" id="hobbies"/></div>
+                    <button type="button" class="btn" id="add_hob">Add</button>
+                    </div>
+                <input type="submit" value="Generate Resume"/>
+            </form>
+        </div>
+    </body>
+</html>
